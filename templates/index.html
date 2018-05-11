@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars News</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div clas="container">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button"><em>What's new with Mars?</em></a></p>
+    </div>
+      
+    <!-- News Article -->
+    <div class="row">
+      <div class="col-sm-12">
+        <h2><strong><center>Latest Mars News</center></strong></h2>
+        <h4><em><center>{{ mars.News_Title }}</center></em></h4>
+        <p><center>{{ mars.News_Text }}</center></p>
+      </div>
+    </div>
+
+    <!-- Featured Images + (Current Weather + Facts Table) -->
+    <div class = "row">
+      <div class = "col-sm-12 col-md-8">
+        <h2><strong><center>Featured Image</center></strong></h2>
+        <img src = {{ mars.Featured_Image }} style = "width: 100%">
+      </div>
+
+      <div class = "col-sm-12 col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3><center>Mars Weather</center></h3>
+            {{ mars.Mars_Weather }}
+          </div>
+        </div>
+        
+        <div class = "row">
+          <h3><strong><center>Mars Facts</center></strong></h3>
+          <div><center>{{ mars.Mars_Facts|safe }}</center></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class = "row">
+      <div class = "col-sm-12">
+        <h2><strong><center>Mars Hemispheres</center></strong></h2>
+      <div class = "row">
+        <div class = "col-sm-6">
+          <div class = "thumbnail">
+            <img src = "{{ mars.Hemisphere_Images[0]['Image URL'] }}" alt = "{{ mars.Hemisphere_Images[0]['Title'] }}">
+            <div class = "caption">
+              <h3 class = "main_text"><strong><center> {{ mars.Hemisphere_Images[0]['Title'] }} </strong></center></h3>
+            </div>
+          </div>
+        </div>
+        <div class = "col-sm-6">
+          <div class = "thumbnail">
+            <img src = "{{ mars.Hemisphere_Images[1]['Image URL'] }}" alt = "{{ mars.Hemisphere_Images[1]['Title'] }}">
+            <div class = "caption">
+              <h3 class = "main_text"><strong><center> {{ mars.Hemisphere_Images[1]['Title'] }} </strong></center></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      <div class = "row">
+        <div class = "col-sm-6">
+          <div class = "thumbnail">
+            <img src = "{{ mars.Hemisphere_Images[2]['Image URL'] }}" alt = "{{ mars.Hemisphere_Images[2]['Title'] }}">
+            <div class = "caption">
+              <h3 class = "main_text"><strong><center> {{ mars.Hemisphere_Images[2]['Title'] }} </strong></center></h3>
+            </div>
+          </div>
+        </div>
+        <div class = "col-sm-6">
+          <div class = "thumbnail">
+            <img src = "{{ mars.Hemisphere_Images[3]['Image URL'] }}" alt = "{{ mars.Hemisphere_Images[3]['Title'] }}">
+            <div class = "caption">
+              <h3 class = "main_text"><strong><center> {{ mars.Hemisphere_Images[3]['Title'] }} </strong></center></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
